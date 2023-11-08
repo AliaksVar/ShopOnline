@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Наша продукция{% endblock %}
+{% block content %}
+<h1>Наша продукция</h1>
+<main>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      {% for el in data %}
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h3 class="my-0 fw-fat">{{ el.title }}</h3>
+          </div>
+          <div class="card-body">
+            <h4 class="my-0 fw-normal">{{el.text}}</h4>
+            <h1 class="card-title pricing-card-title">{{el.price}} BYN/кг</h1>
+            <h1 class="card-title pricing-card-title">Осталось {{el.quantity}} кг</h1>
+            <a href="/buy/{{ el.id }}" class="w-100 btn btn-lg btn-outline-primary">Купить</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </main>
+{% endblock %}
